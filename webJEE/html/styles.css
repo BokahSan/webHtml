@@ -35,6 +35,7 @@ img {
 
 p {
     text-align: center;
+    color: rgb(13, 13, 13);
 }
 
 ol {
@@ -45,3 +46,11 @@ ol {
 a{
     font-size: 15px;
 }
+
+.myStyle {
+    color:rgb(140, 124, 84);
+}
+/*
+#pID {
+    color: blueviolet;
+}*/

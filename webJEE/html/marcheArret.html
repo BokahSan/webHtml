@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Document</title>
+   
+</head>
+<body>
+    <div id="green">
+        <img src="images/green.png">
+    </div>
+    <div id="red">
+        <img src="images/red.png">
+    </div>
+    <button id="marche" onclick="marche()">marche</button>
+    <button id="arret" onclick="arret()">arret</button>
+    <script>
+        var green = document.getElementById("green");
+        var red = document.getElementById("red");
+
+        green.style.display = "none";
+        red.style.display = "block";
+        function marche() {
+            if(green.style.display === "none" && red.style.display === "block"){
+                green.style.display = "block";
+                red.style.display = "none";
+            }
+        }
+
+        function arret() {
+            if(green.style.display === "block" && red.style.display === "none"){
+                green.style.display = "none";
+                red.style.display = "block";
+            }
+        }
+
+    </script>
+</body>
+</html>

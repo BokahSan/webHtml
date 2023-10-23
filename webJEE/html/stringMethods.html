@@ -8,19 +8,66 @@
 </head>
 <body>
     <div>
-        <input type="text" id="email" name="email" placeholder="entrer un email">
-        <button onclick="reformerEmail()">submite</button><br><br>
-        <textarea id="result" placeholder="result.."></textarea>
+        <input type="text" id="email" name="email" placeholder="entrer un email"><br><br>
+        <input type="text" id="textMaj"  placeholder="entrer un text"><br><br>
+        <input type="text" id="twentyChar" placeholder="entrer un text twenty"><br><br>
+        <button onclick="/*reformerEmail(); majText() twentyChar()*/strRev(twentyChara.value)">submite</button><br><br>
+        <textarea id="result" placeholder="result.." readonly></textarea>
     </div>
 
     <script>
         var email = document.getElementById("email");
         var result = document.getElementById("result");
+        var textMaj = document.getElementById("textMaj");
+        var twentyChara = document.getElementById("twentyChar");
         function reformerEmail() {
-            const str = email.value.split('@');
-            let strSplited = str[0].slice(0,1);
-            result.innerHTML = strSplited.concat('...','@',str[1]);
+            if (email.value.includes('@')) {
+                const str = email.value.split('@');
+                let strSplited = str[0].slice(0,1);
+                result.innerHTML = strSplited.concat('...','@',str[1],'\n');
+            }
+            else {
+                alert('wrong input or empty');
+            }
+            
         }
+
+        function majText() {
+            if (textMaj.value.includes(',')) {
+                let strSplitedCommas = textMaj.value.split(',');
+                for (let index = 0; index < strSplitedCommas.length; index++) {
+                    const element = strSplitedCommas[index];
+                    result.innerHTML = result.innerHTML.concat(element.charAt(0).toUpperCase(),element.slice(1),',');
+                }
+            }
+            else{
+                alert('text does not include ,');
+                result.innerHTML = result.innerHTML.concat(textMaj.value);
+            }
+        }
+
+        function twentyChar() {
+            let twenty = twentyChara.value;
+            if(twenty.length > 20){
+                result.innerHTML = result.innerHTML + '\n' + twenty.slice(0,20) + '...';
+            }
+            else {
+                result.innerHTML = result.innerHTML + '\n' + twenty;
+            }
+        }
+        
+        var i = 0;
+        //var textChar = "";
+        function strRev(text) {
+            if (i < text.length) {
+                result.innerHTML = text.charAt(i) + result.innerHTML;
+                //textChar = text.charAt(i) + textChar;
+                i++;
+                strRev(text);
+            }
+        }
+
+
     </script>
 </body>
 </html>

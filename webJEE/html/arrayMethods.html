@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var i = 0;
+    function multiply2Tables(T1,T2) {
+        if (i < T1.length) {
+            T1[i] = T1[i] * T2[i];
+            i++;
+            multiply2Tables(T1,T2);
+        }
+    }
+
+    var table1 = [1,3,4,5,6];
+    var table2 = [3,4,1,7];
+    var tableString = ["Ahmed", "Anas", "Achraf"];
+
+    document.write("<p>table1:"+ table1.join(',')+ "</p>");
+    document.write("<p>table2:"+ table2.join(',')+ "</p>");
+    multiply2Tables(table1,table2);
+    document.write("table1 after multiply function:"+ table1.join(',')+ "</br>");
+    
+    function addString() {
+        document.writeln("table before \"safaa\" added " + tableString.join('|') + '<br>');
+        
+        tableString.splice(tableString.length,0,"Safaa");
+        document.writeln("table after \"safaa\" added " + tableString.join('|') + '<br>');
+        
+        tableString.splice(0,0,"Sanae");
+        document.writeln("table after \"sanae\" added " + tableString.join('|') + '<br>');
+
+        tableString.splice(tableString.indexOf("Achraf") ,0,"Omar");
+        document.writeln("table after \"Omar\" added " + tableString.join('|') + '<br>');
+        
+        tableString.splice(tableString.indexOf("Anas") ,1);
+        document.writeln("table after \"Anas\" removed " + tableString.join('|') + '<br>');
+        
+        tableString.splice(tableString.indexOf("Ahmed") + 1 ,0,"Saad");
+        tableString.splice(tableString.indexOf("Achraf") ,1);
+        document.writeln("table after \"saad\" added and Achraf removed " + tableString.join('|') + '<br>');
+
+        document.write("table sorted " + tableString.sort() + '<br>');
+        
+        let table2String = ["Aya", "Maha"];
+        document.write("table concatenated with Aya, Maha:  " + tableString.concat(table2String));
+
+    }
+
+    addString();
+</script>
+</html>

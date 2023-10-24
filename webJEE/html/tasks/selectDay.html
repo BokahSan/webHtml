@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SelectDay</title>
+</head>
+<body>
+    <main id="main">
+        <h1>Select Day</h1>
+        <select id="day" onchange="selectDay()">
+            <option value="0">Day</option>
+            <option value="1">L</option>
+            <option value="2">Ma</option>
+            <option value="3">Me</option>
+            <option value="4">J</option>
+            <option value="5">V</option>
+            <option value="6">S</option>
+            <option value="7">D</option>
+        </select>
+    </main>
+    
+    <script>
+        function selectDay() {
+            var dayN = document.getElementById("day").value;
+            var main = document.getElementById("main");
+            main.innerHTML = "<h4>Enter your tasks and separate them with \',\'</h4><br><br><textArea onchange=\"affTasks()\" id=\"tasks\" rows=\"15\" cols=\"30\"></textArea>";
+
+            switch (dayN) {
+            case "1":
+                main.innerHTML = "<h1 id=\"Day\">Lundi:</h1>" + main.innerHTML;
+                break;
+            case "2":
+                main.innerHTML = "<h1 id=\"Day\">Mardi:</h1>" + main.innerHTML;
+                break;
+            case "3":
+                main.innerHTML = "<h1 id=\"Day\">Mercredi:</h1>" + main.innerHTML;
+                break;
+            case "4":
+                main.innerHTML = "<h1 id=\"Day\">jeudi:</h1>" + main.innerHTML;
+                break;
+            case "5":
+                main = "<h1 id=\"Day\">Vendredi:</h1>" + main.innerHTML;
+                break;
+            case "6":
+                main = "<h1 id=\"Day\">Samedi:</h1> " + main.innerHTML;
+                break;
+            case "7":
+                main.innerHTML = "<h1 id=\"Day\">Dimanche:</h1>" + main.innerHTML;
+                break;
+            default:
+                break;
+        }
+            
+        }
+
+        function affTasks() {
+            var tasks = document.getElementById("tasks").value;
+            var main = document.getElementById("main");
+            var day = document.getElementById("Day");
+
+            tasks = tasks.split(",");
+
+            main.innerHTML = "<h1>" + day.innerHTML + "</h1>" + "<br><br>" + "<h4>Tasks for today</h4><br><br>" + tasks.join("<br>");
+        }
+        
+    </script>
+</body>
+</html>

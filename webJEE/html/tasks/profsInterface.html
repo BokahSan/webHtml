@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Prof Alami</h1>
+    <main id="main">
+        <h3>Bienvenue</h3>
+        <button onclick="afficherEtudiants()" id="affEtudiant">Afficher Etudiant</button>
+    </main>
+
+    <script>
+
+        let e1={nom:'ousmouh',prenom:'zineb',cin: 'AS22',note:[17,14,16]};
+        let e2={nom:'benfraj',prenom:'khawla',cin: 'AS21',note:[19,13,16]};
+        let e3={nom:'bouzidi',prenom:'khawla',cin: 'AS23',note:[18,19,20]};
+        let etudiants=[e1,e2,e3];
+
+        //afficher liste etudiants
+        function afficherEtudiants() {
+            var main = document.getElementById("main");
+            main.innerHTML = "<h1> La liste des étudiants <h1>";
+            for(let i=0; i<etudiants.length;i++){
+                main.innerHTML += "|Nom| : " + etudiants[i].nom + "<br>|Prénom| : "+etudiants[i].prenom+"  <button onclick='afficherEt(" + i + ")'>Détails</button> <br><br>";
+            }
+        }
+        
+        //afficher detail d'un etudiant
+        function afficherEt(index){
+            var main = document.getElementById("main");
+            main.innerHTML = "<h1>Détails de l'étudiant</h1>";
+            main.innerHTML += "Nom : " + etudiants[index].nom + "<br>";
+            main.innerHTML += "Prénom : " + etudiants[index].prenom + "<br>";
+            main.innerHTML += "CIN : " + etudiants[index].cin + "<br>";
+            main.innerHTML += "Notes : " + etudiants[index].note.join(", ") + "<br><br>";
+            main.innerHTML += "<button onclick='afficherEtudiants()'>Retour</button>";
+        }
+        /* 
+        projet a 4: khawla, khawla, zineb, chaimae
+        
+        */
+    </script>
+</body>
+</html>
